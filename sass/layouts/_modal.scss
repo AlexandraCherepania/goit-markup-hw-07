@@ -1,3 +1,6 @@
+/* Модальне вікно */
+
+
 .backdrop {
     position: fixed;
     top: 0;
@@ -44,6 +47,33 @@
     transition: fill var(--timing-function);
 }
 
+.visually-hidden {
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    border: 0;
+    padding: 0;
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    margin: -1px;
+}
+
+.icon-close {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    transition: fill var(--animation-time);
+}
+
+.icon-close:hover,
+.icon-close:focus {
+    fill: #2196F3;
+}
+
 .form-modal-title {
     padding-top: 40px;
     margin-bottom: 12px;
@@ -56,23 +86,16 @@
     color: #212121;
 }
 
-.icon-close {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
 
-    transition: fill var(--animation-time);
+/* Модальне вікно користувача */
 
-    &:hover,
-    &:focus {
-            fill: #2196F3;
-        }
-}
+
 
 .form-wraper {
     display: flex;
     flex-direction: column;
+
+
 
     margin-right: 40px;
     margin-left: 40px;
@@ -80,11 +103,13 @@
     height: 400px;
 
 }
+
 .form {
     display: inline-block;
     justify-content: center;
     align-items: center;
 }
+
 .form-group {
     position: relative;
     gap: 10px;
@@ -92,8 +117,6 @@
 }
 
 .form-field {
-
-    
     width: 100%;
     height: 40px;
     margin-top: 4px;
@@ -105,15 +128,34 @@
     color: rgba(117, 117, 117, 0.5);
 
     transition: border-color var(--animation-time);
-    
 
-    &:focus,
-    &:hover, 
-    &:placeholder-shown {
-            border-color: var(--accent);
-        }
+}
+
+.form-field:focus,
+.form-field:hover {
+    border-color: var(--accent);
+}
+
+.form-field:focus,
+.form-field:placeholder-shown {
+    border-color: var(--accent);
+}
 
 
+
+.form-field:focus+.form-icon,
+.form-field:hover+.form-icon {
+    fill: var(--accent);
+
+}
+
+
+
+
+.form-name {
+    color: #757575;
+    font-size: 12px;
+    line-height: calc(14 / 12);
 }
 
 
@@ -126,14 +168,12 @@
 
     transition: fill var(--animation-time);
 
-    .form-field:focus+ &,
-        .form-field:hover+ & {
-            fill: var(--accent);
-    
-        }
+
 }
 
-
+.message-group {
+    display: flex;
+}
 
 .form-group-coments {
     display: flex;
@@ -143,25 +183,6 @@
 
 }
 
-textarea {
-    margin-top: 5px;
-    padding: 12px 16px;
-}
-.texteria-field {
-   
-    border: 1px solid rgba(33, 33, 33, 0.2);
-    resize: none;
-    border-radius: 3px;
-
-
-    transition: border-color var(--animation-time);
-
-    textarea &:focus {
-        outline: 1px solid var(--accent);
-    }
-
-
-}
 
 .form-groups.checkbox {
     display: flex;
@@ -169,23 +190,39 @@ textarea {
     justify-content: center;
 }
 
+.texteria-field {
+    padding: 12px 16px;
+    border: 1px solid rgba(33, 33, 33, 0.2);
+    resize: none;
+    border-radius: 3px;
 
-.comments-title {
-    
+
+    transition: border-color var(--animation-time);
+}
+.texteria-field:hover,
+.texteria-field:focus {
+    outline: 2px solid var(--accent);
+}
+
+
+.comments-user {
     width: 100%;
 
+    margin-bottom: 5px;
     color: #757575;
     font-weight: 600;
     font-size: 12px;
     line-height: calc(14 / 12);
     border-color: #757575;
-    
     transition: border-color 200ms;
 
 
 }
 
 .checkbox-icon {
+
+
+
     display: inline-block;
     width: 16px;
     height: 15px;
@@ -194,11 +231,16 @@ textarea {
     border-radius: 2px;
     cursor: pointer;
 
-    margin-right: 9px;
+    margin-right: 8.38px;
 
     transition: background-color var(--animation-time),
         border-color var(--animation-time), outline var(--animation-time);
 
+}
+
+button.button-send {
+    margin-top: 30px;
+    margin-bottom: 40px;
 }
 
 
@@ -217,6 +259,9 @@ textarea {
     background-color: #2196F3;
     border-color: #2196F3;
     outline: 2px solid var(--accent);
+
+
+
 }
 
 
@@ -244,20 +289,7 @@ textarea {
     box-shadow: 4px 0px 4px rgba(0, 0, 0, 0.15);
 }
 
+
 .dogovor-link {
     color: #2196F3;
-}
-
-
-.visually-hidden {
-    position: absolute;
-    white-space: nowrap;
-    width: 1px;
-    height: 1px;
-    overflow: hidden;
-    border: 0;
-    padding: 0;
-    clip: rect(0 0 0 0);
-    clip-path: inset(50%);
-    margin: -1px;
 }

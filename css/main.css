@@ -1,3 +1,4 @@
+@charset "UTF-8";
 html {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -296,7 +297,7 @@ button {
   overflow: hidden;
 }
 
-.features-list {
+.features__list {
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
@@ -336,22 +337,12 @@ button {
   border-radius: 4px;
   height: 120px;
   background-size: contain;
-  -webkit-transition: border var(--animation-time);
-  transition: border var(--animation-time);
-}
-.features__box:hover, .features__box:focus {
-  border: 2px solid var(--accent);
 }
 
 .features__box-icon {
   width: 70px;
   height: 70px;
   background-size: contain;
-  -webkit-transition: fill var(--animation-time);
-  transition: fill var(--animation-time);
-}
-.features__box:hover .features__box-icon, .features__box:focus .features__box-icon {
-  fill: var(--accent);
 }
 
 .features__secondary-title {
@@ -439,7 +430,7 @@ button {
   background-color: #F5F4FA;
 }
 
-.team-title {
+.team__title {
   font-weight: 700;
   font-size: 36px;
   line-height: 1.7;
@@ -689,7 +680,7 @@ button {
   margin-left: 50px;
 }
 
-.footer-title {
+.footer__title {
   font-weight: 700;
   font-size: 14px;
   line-height: 1.14;
@@ -748,11 +739,11 @@ button {
   | Footer form
   |============================
 */
-.footer_form {
+.footer__form {
   margin-left: 93px;
 }
 
-.footer_form-title {
+.footer__form-title {
   font-weight: 700;
   color: var(--fon-second);
   text-transform: uppercase;
@@ -778,7 +769,7 @@ button {
   color: #fff;
 }
 
-.footer-form-button {
+.footer__form-button {
   font-weight: 700;
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
@@ -824,12 +815,15 @@ button {
       -ms-flex-pack: center;
           justify-content: center;
 }
-.conteiner__filter-listli {
+
+.filter__item {
   margin-right: 8px;
+}
+.filter__item:last-child {
+  margin-right: 0;
 }
 
 .filter__button {
-  margin-right: 8px;
   padding-top: 6px;
   padding-bottom: 6px;
   padding-left: 22px;
@@ -946,6 +940,7 @@ button {
   margin-left: 24px;
 }
 
+/* Модальне вікно */
 .backdrop {
   position: fixed;
   top: 0;
@@ -996,14 +991,18 @@ button {
   transition: fill var(--timing-function);
 }
 
-.form-modal-title {
-  padding-top: 40px;
-  margin-bottom: 12px;
-  text-align: center;
-  font-family: Roboto;
-  font-size: 20px;
-  line-height: 1.15;
-  color: #212121;
+.visually-hidden {
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  -webkit-clip-path: inset(50%);
+          clip-path: inset(50%);
+  margin: -1px;
 }
 
 .icon-close {
@@ -1015,10 +1014,23 @@ button {
   -webkit-transition: fill var(--animation-time);
   transition: fill var(--animation-time);
 }
-.icon-close:hover, .icon-close:focus {
+
+.icon-close:hover,
+.icon-close:focus {
   fill: #2196F3;
 }
 
+.form-modal-title {
+  padding-top: 40px;
+  margin-bottom: 12px;
+  text-align: center;
+  font-family: Roboto;
+  font-size: 20px;
+  line-height: 1.15;
+  color: #212121;
+}
+
+/* Модальне вікно користувача */
 .form-wraper {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1061,14 +1073,34 @@ button {
   -webkit-transition: border-color var(--animation-time);
   transition: border-color var(--animation-time);
 }
+
+.form-field:focus,
+.form-field:hover {
+  border-color: var(--accent);
+}
+
 .form-field:-moz-placeholder-shown {
   border-color: var(--accent);
 }
+
 .form-field:-ms-input-placeholder {
   border-color: var(--accent);
 }
-.form-field:focus, .form-field:hover, .form-field:placeholder-shown {
+
+.form-field:focus,
+.form-field:placeholder-shown {
   border-color: var(--accent);
+}
+
+.form-field:focus + .form-icon,
+.form-field:hover + .form-icon {
+  fill: var(--accent);
+}
+
+.form-name {
+  color: #757575;
+  font-size: 12px;
+  line-height: 1.1666666667;
 }
 
 .form-icon {
@@ -1081,8 +1113,11 @@ button {
   -webkit-transition: fill var(--animation-time);
   transition: fill var(--animation-time);
 }
-.form-field:focus + .form-icon, .form-field:hover + .form-icon {
-  fill: var(--accent);
+
+.message-group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .form-group-coments {
@@ -1096,22 +1131,6 @@ button {
   margin-bottom: 20px;
 }
 
-textarea {
-  margin-top: 5px;
-  padding: 12px 16px;
-}
-
-.texteria-field {
-  border: 1px solid rgba(33, 33, 33, 0.2);
-  resize: none;
-  border-radius: 3px;
-  -webkit-transition: border-color var(--animation-time);
-  transition: border-color var(--animation-time);
-}
-textarea .texteria-field:focus {
-  outline: 1px solid var(--accent);
-}
-
 .form-groups.checkbox {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1122,8 +1141,23 @@ textarea .texteria-field:focus {
           justify-content: center;
 }
 
-.comments-title {
+.texteria-field {
+  padding: 12px 16px;
+  border: 1px solid rgba(33, 33, 33, 0.2);
+  resize: none;
+  border-radius: 3px;
+  -webkit-transition: border-color var(--animation-time);
+  transition: border-color var(--animation-time);
+}
+
+.texteria-field:hover,
+.texteria-field:focus {
+  outline: 2px solid var(--accent);
+}
+
+.comments-user {
   width: 100%;
+  margin-bottom: 5px;
   color: #757575;
   font-weight: 600;
   font-size: 12px;
@@ -1140,9 +1174,14 @@ textarea .texteria-field:focus {
   border: 1px solid var(--secondary-hesd-color);
   border-radius: 2px;
   cursor: pointer;
-  margin-right: 9px;
+  margin-right: 8.38px;
   -webkit-transition: background-color var(--animation-time), border-color var(--animation-time), outline var(--animation-time);
   transition: background-color var(--animation-time), border-color var(--animation-time), outline var(--animation-time);
+}
+
+button.button-send {
+  margin-top: 30px;
+  margin-bottom: 40px;
 }
 
 .user-icon-message {
@@ -1182,18 +1221,4 @@ textarea .texteria-field:focus {
 
 .dogovor-link {
   color: #2196F3;
-}
-
-.visually-hidden {
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  border: 0;
-  padding: 0;
-  clip: rect(0 0 0 0);
-  -webkit-clip-path: inset(50%);
-          clip-path: inset(50%);
-  margin: -1px;
 }/*# sourceMappingURL=main.css.map */

@@ -21,7 +21,7 @@
 }
 
 
-.features-list {
+.features__list {
     display: inline-flex; 
     justify-content: center;
 }
@@ -55,12 +55,8 @@
    
     background-size: contain;
 
-    transition: border var(--animation-time);
+   
 
-    &:hover,
-    &:focus {
-        border: 2px solid var(--accent);
-    }
 
     
 }
@@ -69,19 +65,8 @@
     width: 70px;
     height: 70px;
     background-size: contain;
-
-    transition: fill var(--animation-time);
+ 
    
-
-    .features__box:hover &,
-    .features__box:focus & {
-        fill: var(--accent);
-    
-        
-        
-    }
-
-
 }
 
 .features__secondary-title {

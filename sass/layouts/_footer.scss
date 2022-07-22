@@ -76,7 +76,7 @@
     margin-left: 50px;
 }
 
-.footer-title {
+.footer__title {
     font-weight: 700;
     font-size: 14px;
     line-height: 1.14;
@@ -135,11 +135,11 @@
   |============================
 */
 
-.footer_form {
+.footer__form {
     margin-left: 93px;
 }
 
-.footer_form-title {
+.footer__form-title {
     font-weight: 700;
     color: var(--fon-second);
     text-transform: uppercase;
@@ -162,7 +162,7 @@
     margin-right: 12px;
     color: #fff;
 }
-.footer-form-button {
+.footer__form-button {
     font-weight: 700;
     display: inline-flex;
     background-color: #2196F3;
